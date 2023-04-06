@@ -4,8 +4,9 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
 
-refInput = document.getElementById('datetime-picker');
-refStart = document.querySelector('button[data-start]');
+const refInput = document.getElementById('datetime-picker');
+
+const refStart = document.querySelector('button[data-start]');
 const currentParam = {
   days: document.querySelector('span[data-days]'),
   hours: document.querySelector('span[data-hours]'),
