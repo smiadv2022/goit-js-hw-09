@@ -20,7 +20,7 @@ const startTimer = refStart.addEventListener('click', onStartTimer);
 let selData = new Date();
 
 refStart.disabled = true;
-let diff1 = 0;
+// let diff = 0;
 
 function controlDisable() {
   if (selData > new Date()) {
@@ -68,18 +68,18 @@ function onStartTimer() {
   refStart.disabled = true;
 
   const idInterval = setInterval(() => {
-    const a = convertMs(selData.getTime() - new Date().getTime());
+    const diffObj = convertMs(selData.getTime() - new Date().getTime());
     if (selData.getTime() - new Date().getTime() <= 0) {
       clearInterval(idInterval);
 
       return;
     }
 
-    Object.entries(a).forEach(([name, value]) => {
-      currentParam.days.textContent = addLeadingZero3(a.days);
-      currentParam.hours.textContent = addLeadingZero2(a.hours);
-      currentParam.minutes.textContent = addLeadingZero2(a.minutes);
-      currentParam.seconds.textContent = addLeadingZero2(a.seconds);
+    Object.entries(diffObj).forEach(([name, value]) => {
+      currentParam.days.textContent = addLeadingZero3(diffObj.days);
+      currentParam.hours.textContent = addLeadingZero2(diffObj.hours);
+      currentParam.minutes.textContent = addLeadingZero2(diffObj.minutes);
+      currentParam.seconds.textContent = addLeadingZero2(diffObj.seconds);
     });
   }, 1000);
 }
